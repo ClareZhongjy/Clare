@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+       
+     <!-- Spring公共配置文件，开启自动扫描、配置属性文件、国际化文件、初始化、日志等组件-->
+	<import resource="SpringMVC-servlet.xml"/>   
+       
+     <!-- 加载配置文件-->
+     <context:property-placeholder location="classpath:jdbc.properties"/>  
+     <!-- 自动扫描controller包中的控制器 -->
+	 <context:component-scan base-package="com.SpringMVC.*" />
+
+     <!--视图解析的配置-->
+     <!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+         <property name="prefix" value="/WEB-INF/view/" />
+         <property name="suffix" value=".jsp" /><!--controller层中返回页面是可以不加.jsp后缀-->
+     </bean>    
+	 
+	 <bean id="dataSource"  class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
+         <property name="driverClassName" value="com.mysql.jdbc.Driver" />  
+         <property name="url" value="jdbc:mysql://localhost:3306/test" />  
+         <property name="username" value="${dataSource.username}" />
+         <property name="password" value="${dataSource.password}" />
+       
+     </bean>
+     
+     <bean id="sqlSessionFactory"  class="org.mybatis.spring.SqlSessionFactoryBean">
+     <property name="dataSource" ref="dataSource" />
+     <property name="configLocation" value="classpath:MybatisConf.xml" />
+     <property name="typeAliasesPackage" value="com.SpringMVC.entity" />
+     </bean>
+     
+         <!-- DAO接口所在包名，Spring会自动查找其下的类 -->  
+     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"> 
+        <property name="basePackage" value="com.SpringMVC.dao"/>
+     </bean>
+     
+     <bean id="transactionManager"  
+        class="org.springframework.jdbc.datasource.DataSourceTransactionManager">  
+        <property name="dataSource" ref="dataSource" />  
+    </bean>  
+       <!-- 
+     <bean  
+        class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">  
+        <property name="messageConverters">  
+            <list>  
+                <ref bean="mappingJacksonHttpMessageConverter" /> 
+            </list>  
+        </property>  
+    </bean>
+     -->
+</beans>

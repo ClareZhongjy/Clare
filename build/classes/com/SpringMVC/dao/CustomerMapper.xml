@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper 
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.SpringMVC.dao.CustomerMapper">
+	<resultMap type="com.SpringMVC.entity.Customer" id="baseResult">
+		<id column="id" property="id" jdbcType="INTEGER" javaType="int"/>
+		<result column="email" property="email" jdbcType="VARCHAR" javaType="string"/>
+		<result column="name" property="name" jdbcType="VARCHAR" javaType="string"/>
+		<result column="age" property="age" jdbcType="INTEGER" javaType="int"/>
+	</resultMap>
+
+
+	<select id="getAllCustomer" resultMap="baseResult">
+		select * from customers
+	</select>
+	
+	<select id="getCustomerbyName" parameterType="java.lang.String" resultMap="baseResult">
+		select * from customers where 1=1 
+			<if test="userName != null and userName !=''">
+			
+			and name = #{userName,jdbcType=VARCHAR}
+			</if>
+			
+	</select>
+
+</mapper>

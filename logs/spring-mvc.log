@@ -1,0 +1,9 @@
+[INFO] [2017-04-18 14:17:42][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@7a7b0070: startup date [Tue Apr 18 14:17:42 CST 2017]; root of context hierarchy
+  [INFO] [2017-04-18 14:17:42][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [applicationContext.xml]
+  [INFO] [2017-04-18 14:17:43][org.springframework.jdbc.datasource.DriverManagerDataSource]Loaded JDBC driver: com.mysql.jdbc.Driver
+  [INFO] [2017-04-18 14:17:43][mybatisTest.TestMybatis]test
+  [INFO] [2017-04-18 14:18:36][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@7a7b0070: startup date [Tue Apr 18 14:18:36 CST 2017]; root of context hierarchy
+  [INFO] [2017-04-18 14:18:36][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [applicationContext.xml]
+  [INFO] [2017-04-18 14:18:36][org.springframework.jdbc.datasource.DriverManagerDataSource]Loaded JDBC driver: com.mysql.jdbc.Driver
+  [INFO] [2017-04-18 14:18:37][mybatisTest.TestMybatis]test
+  
