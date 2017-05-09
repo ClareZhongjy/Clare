@@ -10,6 +10,25 @@
 <script src="<%=request.getContextPath()%>/static/js/bootstrap/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
+
+	function duUpload(){
+		var formData = new FormData($("#streamUpload"));
+		$.ajax({
+			url:"streamUpload.do",
+			type:"POST",
+			data:formData,
+			async:false,
+			success:function(returnData){
+				alert("ok");
+			},
+			error:function(returnData){
+				alert("failed");
+			}
+		});
+	}
+
+
+
 	window.onload=function(){
 
 		$('input[id=lefile]').change(function() {
@@ -43,7 +62,7 @@
 <div class="control-group">
     <div class="controls">
      
-      <button type="submit" class="btn">Upload</button>
+      <button type="submit" class="btn" onclick="doUpload();">Upload</button>
     </div>
   </div>
  </form>

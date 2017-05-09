@@ -9,19 +9,20 @@ import java.util.Date;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 @Controller
 @RequestMapping("/upload")
-public class UploadController {
+public class UploadController extends BaseController{
 	
 	@RequestMapping("/preUpload.do")
 	public String preUpload(){
 		return "upload/upload";
 	}
-	
-	@RequestMapping("/streamUpload.do")
-	public void streamUpload(@RequestParam("file") CommonsMultipartFile file) throws Exception{
+	@ResponseBody
+	@RequestMapping(value="/streamUpload.do",produces="application/json;charset=UTF-8" )
+	public String streamUpload(@RequestParam("file") CommonsMultipartFile file) throws Exception{
 		  try {
 	            //获取输出流
 	            OutputStream os=new FileOutputStream("E:/"+new Date().getTime()+file.getOriginalFilename());
@@ -42,7 +43,6 @@ public class UploadController {
 	            e.printStackTrace();
 	        }
 	    
-	        
-	        
+		  return "uploaded";
 	}
 }
