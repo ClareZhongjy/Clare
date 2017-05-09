@@ -11,21 +11,7 @@
 
 <script type="text/javascript">
 
-	function duUpload(){
-		var formData = new FormData($("#streamUpload"));
-		$.ajax({
-			url:"streamUpload.do",
-			type:"POST",
-			data:formData,
-			async:false,
-			success:function(returnData){
-				alert("ok");
-			},
-			error:function(returnData){
-				alert("failed");
-			}
-		});
-	}
+
 
 
 
@@ -36,7 +22,21 @@
 		$('#photoCover').val($(this).val());
 		});
 		
-		
+		function duUpload(){
+			var formData = new FormData($("#streamUpload"));
+			$.ajax({
+				url:"streamUpload.do",
+				type:"POST",
+				data:formData,
+				async:false,
+				success:function(returnData){
+					alert("ok");
+				},
+				error:function(returnData){
+					alert("failed");
+				}
+			});
+		}
 	
 	}
 	
@@ -46,7 +46,7 @@
 </head>
 <body>
 <h3>upload files</h3>
-<form  class="form-horizontal"  enctype="multipart/form-data"  id="streamUpload" action="streamUpload.do" method="post">
+<form  class="form-horizontal"  enctype="multipart/form-data"  id="streamUpload" >
 
 
  <div class="control-group">
@@ -62,7 +62,7 @@
 <div class="control-group">
     <div class="controls">
      
-      <button type="submit" class="btn" onclick="doUpload();">Upload</button>
+      <button type="button" class="btn" onClick="doUpload();">Upload</button>
     </div>
   </div>
  </form>
@@ -73,6 +73,7 @@
  
 
 <script type="text/javascript">
+
 </script>
 </body>
 </html>
