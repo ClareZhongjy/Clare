@@ -5,14 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Upload</title>
-<link
-	href="<%=request.getContextPath()%>/static/js/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet">
-<script
-	src="<%=request.getContextPath()%>/static/js/jQuery/jquery-1.9.1.js"></script>
-<script
-	src="<%=request.getContextPath()%>/static/js/bootstrap/js/bootstrap.min.js"></script>
-
+	<link href="<%=request.getContextPath()%>/static/js/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<script src="<%=request.getContextPath()%>/static/js/jQuery/jquery-1.9.1.js"></script>
+	<script src="<%=request.getContextPath()%>/static/js/bootstrap/js/bootstrap.min.js"></script>
+	<script src="<%=request.getContextPath()%>/static/SweetAlert/js/sweet-alert.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/static/SweetAlert/css/sweet-alert.css">
 <script type="text/javascript">
 	
 </script>
@@ -37,7 +34,7 @@
 		<div class="control-group">
 			<div class="controls">
 
-				<button type="button" class="btn" onClick="doUpload()">Upload</button>
+				<button type="button" class="btn btn-primary" onClick="doUpload()">Upload</button>
 			</div>
 		</div>
 	</form>
@@ -61,10 +58,13 @@
 				contentType: false,  
 		        processData: false,
 				success : function(returnData) {
-					alert("ok");
+					if(returnData=="uploaded"){
+						swal("上传成功！", "", "success");
+					}
+					
 				},
 				error : function(returnData) {
-					alert("failed");
+					swal("上传失败！", "", "failed")
 				}
 			});
 		}
