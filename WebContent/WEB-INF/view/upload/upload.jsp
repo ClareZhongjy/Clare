@@ -47,17 +47,17 @@
 			<div class="controls">
 				<span>采用multipart提供的file.transfer方法上传文件</span>
 			</div>
-			<input id="lefile" type="file" name="file" style="display: none">
+			<input id="lefile2" type="file" name="file" style="display: none">
 			<div class="controls">
-				<input id="photoCover" name="ufile" class="input-large" type="text"
+				<input id="photoCover2" name="ufile" class="input-large" type="text"
 					style="height: 30px;"> <a class="btn"
-					onclick="$('input[id=lefile]').click();">Browse</a>
+					onclick="$('input[id=lefile2]').click();">Browse</a>
 			</div>
 		</div>
 		<div class="control-group">
 			<div class="controls">
 
-				<button type="button" class="btn btn-primary" onClick="doUpload()">Upload</button>
+				<button type="button" class="btn btn-primary" onClick="doUpload2()">Upload</button>
 			</div>
 		</div>
 	</form>
@@ -80,22 +80,46 @@
 				contentType: false,  
 		        processData: false,
 				success : function(returnData) {
-					if(returnData=="uploaded"){
-						swal("上传成功！", "", "success");
-					}
-					
+					swal("上传成功！", "花费时间"+returnData, "success");
 				},
 				error : function(returnData) {
 					swal("上传失败！", "", "failed")
 				}
 			});
 		}
+		
+		function doUpload2() {
+			var formData = new FormData($("#multipartUpload")[0]);
+			
+			console.log(formData);
+			$.ajax({
+				url : "multipartUpload.do",
+				type : "POST",
+				data : formData,
+				async : true,
+				dataType:"text",
+				contentType: false,  
+		        processData: false,
+				success : function(returnData) {
+						swal("上传成功！", "花费时间"+returnData, "success");		
+				},
+				error : function(returnData) {
+					swal("上传失败！", "", "failed")
+				}
+			});
+		}
+		
 
 		window.onload = function() {
 
 			$('input[id=lefile]').change(function() {
 
 				$('#photoCover').val($(this).val());
+			});
+			
+			$('input[id=lefile2]').change(function() {
+
+				$('#photoCover2').val($(this).val());
 			});
 
 		}

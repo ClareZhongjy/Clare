@@ -24,4 +24,11 @@ public class IndexController {
 		return "plat";
 	}
 	
+	
+	@RequestMapping("/welcome.do")
+	public String preWelcome(){
+		return "index";
+	}
+	
+	
 }
