@@ -2,12 +2,14 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-
+<head>
+<title>SpringMVC Demo API</title>
+</head>
 	<frameset id="index" rows="92,*" frameborder="yes" border="1" framespacing="0">
   		<frame id="topFrame" name="topFrame" scrolling="no" noresize="noresize" src="${pageContext.request.contextPath}/index/top.do">
     	<frameset id="main"  cols="20%,78%" frameborder="yes" border="1" framespacing="0">
 	  		<frame name="leftFrame" scrolling="no" noresize="noresize" src="${pageContext.request.contextPath}/index/left.do">
-	  		<frame name="mainFrame" scrolling="auto" noresize="noresize" src="${pageContext.request.contextPath}/customer/enterCust.do">
+	  		<frame name="mainFrame" scrolling="auto" noresize="noresize" src="${pageContext.request.contextPath}/index/welcome.do">
 		</frameset>
 	</frameset>
 	<!--  
@@ -20,5 +22,5 @@
      2
     </div>
   </div>-->
-</div>
+
 </html>

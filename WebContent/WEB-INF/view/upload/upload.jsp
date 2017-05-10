@@ -38,7 +38,29 @@
 			</div>
 		</div>
 	</form>
+<br>
+	<form class="form-horizontal" enctype="multipart/form-data"
+		id="multipartUpload">
 
+
+		<div class="control-group">
+			<div class="controls">
+				<span>采用multipart提供的file.transfer方法上传文件</span>
+			</div>
+			<input id="lefile" type="file" name="file" style="display: none">
+			<div class="controls">
+				<input id="photoCover" name="ufile" class="input-large" type="text"
+					style="height: 30px;"> <a class="btn"
+					onclick="$('input[id=lefile]').click();">Browse</a>
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="controls">
+
+				<button type="button" class="btn btn-primary" onClick="doUpload()">Upload</button>
+			</div>
+		</div>
+	</form>
 
 
 
