@@ -6,9 +6,6 @@ import com.SpringMVC.dto.BaseEntity;
 
 /**
  * 功能概要：
- * 
- * @author linbingwen
- * @since  2015年10月23日 
  */
 public class PagedResult<T> extends BaseEntity {
 	

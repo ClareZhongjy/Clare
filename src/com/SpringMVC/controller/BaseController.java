@@ -25,8 +25,6 @@ public class BaseController {
      * 返回服务端处理结果
      * @param obj 服务端输出对象
      * @return 输出处理结果给前段JSON格式数据
-     * @author YANGHONGXIA
-     * @since 2015-01-06
      */
 	public String responseResult(Object obj){
 		JSONObject jsonObj = null;

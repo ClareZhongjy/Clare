@@ -8,8 +8,6 @@ import com.SpringMVC.util.PagedResult;
 /**
  * 功能概要：
  * 
- * @author linbingwen
- * @since  2015年10月22日 
  */
 
 

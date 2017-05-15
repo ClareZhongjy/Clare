@@ -16,8 +16,6 @@ import java.util.Map;
  * <p>
  * <b>详细描述：</b>
  * 
- * @author costin_law 
- * @since 2014-5-5
  */
 public abstract class BaseEntity implements Serializable{
 	private static final long serialVersionUID = 1L;
