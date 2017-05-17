@@ -23,6 +23,6 @@ public class HttpConstants {
 	// 执行删除操作
 	public static final String OPERATION_TYPE_DELETE = "D";
 
-	public static final String ENUM_PATH = "com.mucfc.msm.enumeration.";
+	
 	
 }
