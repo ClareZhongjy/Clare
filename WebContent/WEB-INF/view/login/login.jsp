@@ -20,7 +20,7 @@
     		margin-top: 0em;
 		}
 		.form-bg{
-		    background: #00b4ef;
+		   
 		}
 		.form-horizontal{
 		    background: #fff;
@@ -164,21 +164,21 @@
 		}
 	</style>
 </head>
-<body>
+<body  background="<%=request.getContextPath()%>/static/pic/back.jpg">
 
 
-<div class="demo form-bg" style="padding: 20px 0;">
+<div class="demo form-bg" style="padding: 20px 0;margin-top: 13%;">
 		        <div class="container">
 		            <div class="row center">
 		                <div class="col-md-offset-3 col-md-6">
-		                    <form class="form-horizontal">
+		                    <form class="form-horizontal" action="login.do" method="post">
 		                        <span class="heading">用户登录</span>
 		                        <div class="form-group">
-		                            <input type="text" class="form-control" id="inputEmail3" placeholder="用户名或电子邮件">
+		                            <input type="text" name="user.username"class="form-control" id="inputEmail3" placeholder="用户名或电子邮件">
 		                            <i class="fa fa-user"></i>
 		                        </div>
 		                        <div class="form-group help">
-		                            <input type="password" class="form-control" id="inputPassword3" placeholder="密　码">
+		                            <input type="password" name="user.password" class="form-control" id="inputPassword3" placeholder="密　码">
 		                            <i class="fa fa-lock"></i>
 		                            <a href="#" class="fa fa-question-circle"></a>
 		                        </div>
