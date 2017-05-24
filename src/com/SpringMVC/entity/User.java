@@ -5,6 +5,16 @@ public class User {
 	private String userName;
 	private String password;
 	private int age;
+	private String session;
+	
+	
+	
+	public String getSession() {
+		return session;
+	}
+	public void setSession(String session) {
+		this.session = session;
+	}
 	public int getId() {
 		return id;
 	}
@@ -28,6 +38,10 @@ public class User {
 	}
 	public void setAge(int age) {
 		this.age = age;
+	}
+	
+	public String toString(){
+		return "User: id-"+id+" username-"+userName+" password-"+password+" age-"+age;
 	}
 	
 	

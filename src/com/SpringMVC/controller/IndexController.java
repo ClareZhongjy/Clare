@@ -7,25 +7,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/index")
 public class IndexController {
 
-	@RequestMapping("/left.do")
+	@RequestMapping("/left")
 	public String left(){
 		return "left";
 	}
 	
-	@RequestMapping("/top.do")
+	@RequestMapping("/top")
 	public String top(){
 		return "top";
 	}
 	
 	
 	
-	@RequestMapping("/")
+	@RequestMapping("/main")
 	public String enterMain(){
 		return "plat";
 	}
 	
 	
-	@RequestMapping("/welcome.do")
+	@RequestMapping("/welcome")
 	public String preWelcome(){
 		return "index";
 	}

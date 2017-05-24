@@ -6,10 +6,10 @@
 <title>SpringMVC Demo API</title>
 </head>
 	<frameset id="index" rows="92,*" frameborder="yes" border="1" framespacing="0">
-  		<frame id="topFrame" name="topFrame" scrolling="no" noresize="noresize" src="${pageContext.request.contextPath}/index/top.do">
+  		<frame id="topFrame" name="topFrame" scrolling="no" noresize="noresize" src="${pageContext.request.contextPath}/index/top">
     	<frameset id="main"  cols="20%,78%" frameborder="yes" border="1" framespacing="0">
-	  		<frame name="leftFrame" scrolling="no" noresize="noresize" src="${pageContext.request.contextPath}/index/left.do">
-	  		<frame name="mainFrame" scrolling="auto" noresize="noresize" src="${pageContext.request.contextPath}/index/welcome.do">
+	  		<frame name="leftFrame" scrolling="no" noresize="noresize" src="${pageContext.request.contextPath}/index/left">
+	  		<frame name="mainFrame" scrolling="auto" noresize="noresize" src="${pageContext.request.contextPath}/index/welcome">
 		</frameset>
 	</frameset>
 	<!--  

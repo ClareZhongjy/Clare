@@ -23,8 +23,15 @@
 </context-param>
   
   
+  <filter>
+    <filter-name>threadLocalFilter</filter-name>
+    <filter-class>com.SpringMVC.util.ThreadLocalFilter</filter-class>
+  </filter>
   
-  
+  <filter-mapping>
+    <filter-name>threadLocalFilter</filter-name>
+    <url-pattern>*.do</url-pattern>
+  </filter-mapping>
   
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>

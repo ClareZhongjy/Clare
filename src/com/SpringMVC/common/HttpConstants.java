@@ -24,5 +24,6 @@ public class HttpConstants {
 	public static final String OPERATION_TYPE_DELETE = "D";
 
 	
+	public static final String SESSION_ATTRIBUTE_USER = "_USER";
 	
 }
