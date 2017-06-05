@@ -38,13 +38,12 @@ public class ThreadLocalFilter implements Filter {
 		if(user == null ){
 			String contextPath = request.getContextPath();
 			String requestURI = request.getRequestURI();
-			logger.info(contextPath);
-			logger.info(requestURI);
-			logger.info(Pattern.matches(reg_filter, requestURI));
+			
 			if (Pattern.matches(reg_filter, requestURI) && !requestURI.startsWith(contextPath + "/_ajax.do")
-					&& !requestURI.startsWith(contextPath + "login/preLogin.do")&& !requestURI.startsWith(contextPath + "/login.do")
-					&& !requestURI.startsWith(contextPath + "/loginOut.do"))
+					&& !requestURI.startsWith(contextPath + "/login/preLogin.do")&& !requestURI.startsWith(contextPath + "/login/login.do")
+					&& !requestURI.startsWith(contextPath + "/login/loginOut.do"))
 			{
+				
 				String redirectURI = contextPath + "/login/preLogin.do";
 				response.sendRedirect(redirectURI);
 				return;
