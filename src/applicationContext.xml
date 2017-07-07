@@ -50,6 +50,9 @@
         class="org.springframework.jdbc.datasource.DataSourceTransactionManager">  
         <property name="dataSource" ref="dataSource" />  
     </bean>  
+    
+    
+    <bean class="com.SpringMVC.util.SpringContextUtil" />
        <!-- 
      <bean  
         class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">  
