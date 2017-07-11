@@ -16,7 +16,7 @@
 </head>
 <body>
 <form class="form-horizontal" enctype="multipart/form-data"
-		id="excelExport">
+		id="excelExport" action="exportExcel.do">
 
 
 		<div class="control-group">

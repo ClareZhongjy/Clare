@@ -14,6 +14,7 @@
 <ul class="nav nav-tabs nav-stacked">
 <li><a href="${pageContext.request.contextPath}/customer/enterCust.do" target="mainFrame">分页展示</a></li>
 <li><a href="${pageContext.request.contextPath}/upload/preUpload.do" target="mainFrame">文件上传</a></li>
+<li><a href="${pageContext.request.contextPath}/export/preExport.do" target="mainFrame">导出Excel</a></li>
 <li><a href="#">3</a></li>
 </ul>
 </body>
