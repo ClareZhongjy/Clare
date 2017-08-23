@@ -45,4 +45,12 @@ public class LoginController extends BaseController{
 		
 		return "plat";
 	}
+	
+	@RequestMapping(value="/loginOut.do",method=RequestMethod.GET)
+	public String loginOut(String userName){
+		User result = userService.findUserByName(userName);
+		result.setSession("");
+		userService.updateUser(result);
+		return "login/login";
+	}
 }

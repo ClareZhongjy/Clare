@@ -4,6 +4,7 @@
 <html>
 <head>
 <title>SpringMVC Demo API</title>
+
 </head>
 	<frameset id="index" rows="92,*" frameborder="yes" border="1" framespacing="0">
   		<frame id="topFrame" name="topFrame" scrolling="no" noresize="noresize" src="${pageContext.request.contextPath}/index/top">

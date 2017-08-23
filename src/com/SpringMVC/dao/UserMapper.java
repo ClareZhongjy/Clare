@@ -6,4 +6,6 @@ public interface UserMapper {
 	public User getUserByLogin(User user);
 
 	public int updateUser(User user);
+
+	public User findUserByName(String userName);
 }

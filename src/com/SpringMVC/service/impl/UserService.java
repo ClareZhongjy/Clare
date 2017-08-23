@@ -24,5 +24,11 @@ public class UserService implements IUserService {
 		int result = userDao.updateUser(user);
 		return result;
 	}
+
+	@Override
+	public User findUserByName(String userName) {
+		User user = userDao.findUserByName(userName);
+		return user;
+	}
 	
 }

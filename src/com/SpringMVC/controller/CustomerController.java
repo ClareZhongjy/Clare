@@ -36,7 +36,7 @@ public class CustomerController extends BaseController{
 	
 
 	
-	@RequestMapping(value="/list1.do",method=RequestMethod.POST)
+	@RequestMapping(value="/list1.do",method=RequestMethod.POST,produces="text/html;charset=UTF-8")
 	@ResponseBody
 	public String getCustomerbyName(Integer pageNumber,Integer pageSize ,String userName){
 		System.out.println("分页查询用户信息列表请求入参：pageNumber{},pageSize{}"+ pageNumber+" "+pageSize);

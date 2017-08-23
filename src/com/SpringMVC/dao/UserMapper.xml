@@ -24,6 +24,14 @@
 			
 	</select>
 	
+	<select id="findUserByName" parameterType="com.SpringMVC.entity.User" resultMap="baseResult">
+			select * from User 
+			where 
+			username=#{userName,jdbcType=VARCHAR}
+			
+			
+	</select>
+	
 	
 	<update id="updateUser" parameterType="com.SpringMVC.entity.User" >
 		update User 

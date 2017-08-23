@@ -45,6 +45,7 @@ public class ThreadLocalFilter implements Filter {
 			{
 				
 				String redirectURI = contextPath + "/login/preLogin.do";
+				response.setHeader("refresh", "1;url:/login/preLogin.do");
 				response.sendRedirect(redirectURI);
 				return;
 			}
