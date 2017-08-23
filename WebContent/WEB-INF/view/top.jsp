@@ -27,7 +27,7 @@ function exitLogin(){
   <div class="col-md-1">
   	<span style="float:right;color:white;margin-top: 8px;margin-right: 6px;">
 	  	<i class="glyphicon glyphicon-user" ></i> 
-	  	${_USER.userName }
+	  	${_USER.cnName }
 	  	<br>
 	  	<a href="#" title="退出" style="margin-right: 0;float: right;" onclick="exitLogin();">
 	  	<i class="glyphicon glyphicon-off" ></i> </a>
