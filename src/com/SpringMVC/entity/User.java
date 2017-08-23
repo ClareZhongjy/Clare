@@ -6,9 +6,16 @@ public class User {
 	private String password;
 	private int age;
 	private String session;
+	private String cnName;
 	
 	
 	
+	public String getCnName() {
+		return cnName;
+	}
+	public void setCnName(String cnName) {
+		this.cnName = cnName;
+	}
 	public String getSession() {
 		return session;
 	}
