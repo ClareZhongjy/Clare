@@ -47,10 +47,11 @@ public class LoginController extends BaseController{
 	}
 	
 	@RequestMapping(value="/loginOut.do",method=RequestMethod.GET)
-	public String loginOut(String userName){
+	public String loginOut(String userName,HttpSession session){
 		User result = userService.findUserByName(userName);
 		result.setSession("");
 		userService.updateUser(result);
+		session.setAttribute(HttpConstants.SESSION_ATTRIBUTE_USER, null);
 		return "login/login";
 	}
 }
