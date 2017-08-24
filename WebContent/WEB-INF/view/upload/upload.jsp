@@ -5,17 +5,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Upload</title>
-	<link href="<%=request.getContextPath()%>/static/js/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<script src="<%=request.getContextPath()%>/static/js/jQuery/jquery-1.9.1.js"></script>
-	<script src="<%=request.getContextPath()%>/static/js/bootstrap/js/bootstrap.min.js"></script>
-	<script src="<%=request.getContextPath()%>/static/SweetAlert/js/sweet-alert.min.js"></script>
+<link href="<%=request.getContextPath()%>/static/bootstrap3/css/bootstrap.min.css" rel="stylesheet">
+<script src="<%=request.getContextPath()%>/static/js/jQuery/jquery-1.9.1.js"></script>
+<script src="<%=request.getContextPath()%>/static/bootstrap3/js/bootstrap.min.js"></script>
+
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/static/SweetAlert/css/sweet-alert.css">
 <script type="text/javascript">
 	
 </script>
 </head>
-<body>
+<body >
+<div class="container">
+	<div style="border-bottom: solid 1px #ddd;">
 	<h3>upload files</h3>
+	</div>
+	
 	<form class="form-horizontal" enctype="multipart/form-data"
 		id="streamUpload">
 
@@ -84,8 +88,8 @@
 			</div>
 		</div>
 	</form>
-
-
+</div>
+</div>
 
 
 
