@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper 
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.SpringMVC.dao.UploadMapper">
+	<resultMap type="com.SpringMVC.entity.Pic" id="baseResult">
+		<id column="id" property="id" jdbcType="INTEGER" javaType="int"/>
+		<result column="username" property="userName" jdbcType="VARCHAR" javaType="string"/>
+		<result column="pic" property="Pic" jdbcType="BLOB" javaType="byte[]"/>
+	
+	</resultMap>
+
+
+	
+	
+	<insert id="uploadPic" parameterType="com.SpringMVC.entity.Pic" useGeneratedKeys="true" keyProperty="id">
+		insert into pic (username,pic) values
+		(#{username,jdbcType=VARCHAR},#{pic,jdbcType=BLOB})
+	
+	</insert>
+
+</mapper>
