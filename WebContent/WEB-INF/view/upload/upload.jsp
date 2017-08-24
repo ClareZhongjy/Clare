@@ -8,14 +8,14 @@
 <link href="<%=request.getContextPath()%>/static/bootstrap3/css/bootstrap.min.css" rel="stylesheet">
 <script src="<%=request.getContextPath()%>/static/js/jQuery/jquery-1.9.1.js"></script>
 <script src="<%=request.getContextPath()%>/static/bootstrap3/js/bootstrap.min.js"></script>
-
+<script src="<%=request.getContextPath()%>/static/SweetAlert/js/sweet-alert.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/static/SweetAlert/css/sweet-alert.css">
 <script type="text/javascript">
 	
 </script>
 </head>
 <body >
-<div class="container">
+<div class="container-fluid">
 	<div style="border-bottom: solid 1px #ddd;">
 	<h3>upload files</h3>
 	</div>
