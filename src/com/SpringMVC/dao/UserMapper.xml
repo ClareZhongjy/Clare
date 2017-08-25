@@ -10,6 +10,7 @@
 		<result column="password" property="password" jdbcType="VARCHAR" javaType="string"/>
 		<result column="age" property="age" jdbcType="INTEGER" javaType="int"/>
 		<result column="session" property="session" jdbcType="VARCHAR" javaType="string"/>
+		<result column="cnName" property="cnName" jdbcType="VARCHAR" javaType="string"/>
 	</resultMap>
 
 
