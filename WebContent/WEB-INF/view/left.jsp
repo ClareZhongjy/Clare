@@ -26,7 +26,7 @@
 <li><a href="${pageContext.request.contextPath}/customer/enterCust.do" target="mainFrame"><i class="glyphicon glyphicon-th-list" ></i> 分页展示</a></li>
 <li><a href="${pageContext.request.contextPath}/upload/preUpload.do" target="mainFrame"><i class="glyphicon glyphicon-open" ></i> 文件上传</a></li>
 <li><a href="${pageContext.request.contextPath}/export/preExport.do" target="mainFrame"><i class="glyphicon glyphicon-log-in" ></i> 导出Excel</a></li>
-<li><a href="#">3</a></li>
+<li><a href="${pageContext.request.contextPath}/upload/preUploadPic.do" target="mainFrame"><i class="glyphicon glyphicon-bookmark" ></i> 图片存储</a></li>
 </ul>
 </body>
 </html>
