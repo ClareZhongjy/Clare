@@ -10,6 +10,7 @@
 <script src="<%=request.getContextPath()%>/static/bootstrap3/js/bootstrap.min.js"></script>
 <script src="<%=request.getContextPath()%>/static/SweetAlert/js/sweet-alert.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/static/SweetAlert/css/sweet-alert.css">
+
 <script type="text/javascript">
 	
 </script>
@@ -89,13 +90,19 @@
 		</div>
 	</form>
 </div>
-</div>
+
+<!-- 进度条 -->
+<div id="jqmeter-container"></div>   
 
 
 
 	<script type="text/javascript">
+	
+	
+	
 		function doUpload() {
 			var formData = new FormData($("#streamUpload")[0]);
+			
 			
 			console.log(formData);
 			$.ajax({
@@ -152,7 +159,7 @@
 						swal("上传成功！", "花费时间"+returnData, "success");		
 				},
 				error : function(returnData) {
-					swal("上传失败！", "", "failed")
+					swal("上传失败！", "", "error")
 				}
 			});
 		}
@@ -175,6 +182,7 @@
 				$('#photoCover3').val($(this).val());
 			});
 
+			
 		}
 	</script>
 </body>
