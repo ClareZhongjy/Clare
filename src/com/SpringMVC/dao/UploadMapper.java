@@ -8,6 +8,6 @@ public interface UploadMapper {
 
 	void uploadPic(Pic p);
 
-	byte[] getDownloadPic(@Param("filename")String tempFileName);
+	Pic getDownloadPic(@Param("filename")String tempFileName);
 
 }

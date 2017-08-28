@@ -40,7 +40,8 @@ public class UploadService implements IUploadService {
 		
 		byte[] files = null;
 		try{
-			files = udao.getDownloadPic(tempFileName);
+			Pic pic = udao.getDownloadPic(tempFileName);
+			files = pic.getPic();
 		}catch(Exception e){
 			e.printStackTrace();
 		}
