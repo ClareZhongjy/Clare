@@ -2,7 +2,10 @@ package com.SpringMVC.controller;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
 
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -12,6 +15,7 @@ import java.util.Date;
 import java.util.Iterator;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -122,6 +126,7 @@ public class UploadController extends BaseController{
 	}
 	
 	@SuppressWarnings("rawtypes")
+	@ResponseBody
 	@RequestMapping(value="/uploadPic.do",method=RequestMethod.POST)
 	public String uploadPic(HttpServletRequest request) throws IOException{
 		CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver(
@@ -141,6 +146,52 @@ public class UploadController extends BaseController{
             }
 		}
 		logger.info("success");
+		return "success";
+		
+	}
+	@ResponseBody
+	@RequestMapping(value="/downloadPic.do",method=RequestMethod.POST)
+	public String downloadPic(HttpServletRequest request,
+            HttpServletResponse response){
+		String tempFileName = "1.jpg";
+		String filepath = "E://SpringMVC/download/";
+		File filepaths = new File(filepath);
+		if(!filepaths.exists()){
+			filepaths.mkdirs();
+		}
+		 File file = new File(filepath+tempFileName);
+	     
+	     
+		 response.setHeader("Content-Disposition", "attachment;filename=" +tempFileName);
+	        response.setContentType("multipart/form-data;charset=UTF-8");
+	        response.setHeader("Pragma", "no-cache");
+	        response.setHeader("Cache-Control", "no-cache");
+	        response.setDateHeader("Expires", 0);
+		
+		byte[] files = uservice.downloadPic(tempFileName);
+		
+		
+		
+		OutputStream output;
+		
+		
+		try {
+			FileOutputStream fos = new FileOutputStream(file);
+			fos.write(files, 0, files.length);
+			fos.close();
+			
+			
+			output = response.getOutputStream();
+			BufferedOutputStream bufferedOutPut = new BufferedOutputStream(output);
+			bufferedOutPut.write(files);
+			bufferedOutPut.flush();
+			bufferedOutPut.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+		
 		return null;
 		
 	}

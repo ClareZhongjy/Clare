@@ -6,8 +6,8 @@
 <mapper namespace="com.SpringMVC.dao.UploadMapper">
 	<resultMap type="com.SpringMVC.entity.Pic" id="baseResult">
 		<id column="id" property="id" jdbcType="INTEGER" javaType="int"/>
-		<result column="username" property="userName" jdbcType="VARCHAR" javaType="string"/>
-		<result column="pic" property="Pic" jdbcType="BLOB" javaType="byte[]"/>
+		<result column="username" property="username" jdbcType="VARCHAR" javaType="string"/>
+		<result column="pic" property="pic" jdbcType="BLOB" javaType="byte[]"  typeHandler="org.apache.ibatis.type.BlobTypeHandler" />
 	
 	</resultMap>
 
@@ -15,9 +15,13 @@
 	
 	
 	<insert id="uploadPic" parameterType="com.SpringMVC.entity.Pic" useGeneratedKeys="true" keyProperty="id">
-		insert into pic (username,pic) values
-		(#{username,jdbcType=VARCHAR},#{pic,jdbcType=BLOB})
+		insert into pic (username,pic,filename) values
+		(#{username,jdbcType=VARCHAR},#{pic,javaType=byte[],jdbcType=BLOB,typeHandler=org.apache.ibatis.type.BlobTypeHandler},#{filename,jdbcType=VARCHAR})
 	
 	</insert>
 
+
+	<select id="getDownloadPic" parameterType="java.lang.String" resultMap="baseResult">
+		select username,pic from pic where filename='1.jpg'
+	</select>
 </mapper>

@@ -48,24 +48,10 @@
     <property name="maxUploadSize" value="31457280" />
     <property name="defaultEncoding" value="UTF-8"></property>
 </bean>
-<!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射，解决@ResponseBody乱码问题  
-     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
-         <property name="messageConverters">
-             <list>
-                 <bean class="org.springframework.http.converter.StringHttpMessageConverter">
-                     <property name="supportedMediaTypes">
-                         <list>
-                             <value>text/html;charset=UTF-8</value>
-                             <value>text/plain;charset=UTF-8</value>
-                             <value>application/json;charset=UTF-8</value>
-                         </list>
-                     </property>
-                 </bean>
-             </list>
-         </property>
-     </bean>    
+ <!--  启动Spring MVC的注解功能，完成请求和注解POJO的映射，解决@ResponseBody乱码问题  -->
+    
      
--->
+
      
 
 </beans>

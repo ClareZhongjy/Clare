@@ -28,12 +28,25 @@ public class UploadService implements IUploadService {
 		
 		p.setUsername("user");
 		p.setPic(b1);
-		
+		p.setFilename(file.getName());
 		udao.uploadPic(p);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	public byte[] downloadPic(String tempFileName) {
+		
+		byte[] files = null;
+		try{
+			files = udao.getDownloadPic(tempFileName);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		
+		return files;
 	}
 
 }

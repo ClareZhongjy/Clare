@@ -5,9 +5,9 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bootstrap分页实例</title>
-<link href="<%=request.getContextPath()%>/static/js/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="<%=request.getContextPath()%>/static/bootstrap2/css/bootstrap.min.css" rel="stylesheet">
 <script src="<%=request.getContextPath()%>/static/js/jQuery/jquery-1.9.1.js"></script>
-<script src="<%=request.getContextPath()%>/static/js/bootstrap/js/bootstrap.min.js"></script>
+<script src="<%=request.getContextPath()%>/static/bootstrap2/js/bootstrap.min.js"></script>
 <script src="<%=request.getContextPath()%>/static/js/bootstrap/js/bootstrap-paginator.min.js"></script>
 <style type="text/css">
 #queryDiv {
@@ -39,6 +39,7 @@ td {
 			<caption>查询用户结果</caption>
 			<thead>
 				<tr>
+					<th><input type="checkbox"></input></th>
 					<th>ID</th>
 					<th>email</th>
 					<th>name</th>
@@ -138,6 +139,7 @@ td {
          if (dataList.length > 0 ) {
              $(dataList).each(function(){//重新生成
              	    $("#tableBody").append('<tr>');
+             	    $("#tableBody").append('<td><input type="checkbox" value="'+this.id+'"/></td>');
                     $("#tableBody").append('<td>' + this.id + '</td>');
                     $("#tableBody").append('<td>' + this.name + '</td>');
                     $("#tableBody").append('<td>' + this.email + '</td>');
