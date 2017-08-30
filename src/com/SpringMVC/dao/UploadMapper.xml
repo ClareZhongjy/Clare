@@ -24,4 +24,11 @@
 	<select id="getDownloadPic" parameterType="java.lang.String" resultMap="baseResult">
 		select username,pic from pic where filename='1.jpg'
 	</select>
+	
+	<select id="getAllDownloadByName" parameterType="java.lang.String" resultMap="baseResult">
+		select username,filename from pic where  1=1 
+			<if test="fileName != null and fileName !=''">
+			and filename=#{fileName,jdbcType=VARCHAR}
+			</if>
+	</select>
 </mapper>

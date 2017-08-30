@@ -28,7 +28,12 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
+import com.SpringMVC.common.HttpConstants;
+import com.SpringMVC.entity.Customer;
+import com.SpringMVC.entity.Pic;
+import com.SpringMVC.entity.User;
 import com.SpringMVC.service.impl.UploadService;
+import com.SpringMVC.util.PagedResult;
 
 @Controller
 @RequestMapping("/upload")
@@ -131,6 +136,10 @@ public class UploadController extends BaseController{
 	public String uploadPic(HttpServletRequest request) throws IOException{
 		CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver(
 				request.getSession().getServletContext());
+		try{
+		User user = (User) request.getSession().getAttribute(HttpConstants.SESSION_ATTRIBUTE_USER);
+		
+		String userName = user.getCnName();
 		
 		if(multipartResolver.isMultipart(request)){
 			MultipartHttpServletRequest multipart = (MultipartHttpServletRequest) request;
@@ -142,14 +151,17 @@ public class UploadController extends BaseController{
             {
                 //一次遍历所有文件
                 MultipartFile file=multipart.getFile(iter.next().toString());
-                uservice.uploadPic(file);
+                uservice.uploadPic(file,userName);
             }
+		}
+		}catch(Exception e){
+			e.printStackTrace();
 		}
 		logger.info("success");
 		return "success";
 		
 	}
-	@ResponseBody
+	
 	@RequestMapping(value="/downloadPic.do",method=RequestMethod.POST)
 	public String downloadPic(HttpServletRequest request,
             HttpServletResponse response){
@@ -163,14 +175,12 @@ public class UploadController extends BaseController{
 	     
 	     
 		 response.setHeader("Content-Disposition", "attachment;filename=" +tempFileName);
-	        response.setContentType("multipart/form-data;charset=UTF-8");
-	        response.setHeader("Pragma", "no-cache");
-	        response.setHeader("Cache-Control", "no-cache");
-	        response.setDateHeader("Expires", 0);
+	       
+	      
 		
 		byte[] files = uservice.downloadPic(tempFileName);
 		
-		
+		byte[] files2 = files;
 		
 		OutputStream output;
 		
@@ -183,8 +193,9 @@ public class UploadController extends BaseController{
 			
 			output = response.getOutputStream();
 			BufferedOutputStream bufferedOutPut = new BufferedOutputStream(output);
-			bufferedOutPut.write(files);
 			bufferedOutPut.flush();
+			bufferedOutPut.write(files2);
+			
 			bufferedOutPut.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -193,6 +204,19 @@ public class UploadController extends BaseController{
         
 		
 		return null;
+		
+	}
+	@RequestMapping(value="/preDownloadPic.do",method=RequestMethod.GET)
+	public String preDownloadPic(){
+		
+		return "pic/downloadPic";
+	}
+	
+	@RequestMapping(value="/downloadList.do",method=RequestMethod.POST,produces="text/html;charset=UTF-8")
+	@ResponseBody
+	public String downloadList(Integer pageNumber,Integer pageSize ,String fileName){
+		PagedResult<Pic> picList = uservice.getAllDownloadByName(fileName,pageNumber,pageSize); 
+		return responseSuccess(picList);
 		
 	}
 }

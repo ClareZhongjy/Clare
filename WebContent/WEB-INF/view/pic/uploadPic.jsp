@@ -49,24 +49,10 @@
 	}
 	
 	function downloadPic(){
-		var filename ="1.jpg";
-		$.ajax({
-			url:"downloadPic.do",
-			type:"POST",
-			data: filename,
-			async:true,
-			dataType : "text",
-			contentType:false,
-			processData:false,
-			dataType:"text",
-			success:function(returnData){
-				
-			},
-			error:function(){
-				
-			}
-		})
+		var url = "${pageContext.request.contextPath}/upload/preDownloadPic.do";
+		window.location.href = url;
 	}
+
 </script>
 </head>
 <body >
@@ -90,17 +76,12 @@
 <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
        <input class="btn btn-default" type="button" value="保存" onclick="doUploadPic();">
+        <input class="btn btn-default" type="button" value="下载图片" onclick="downloadPic();">
     </div>
   </div>
   
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-       <input class="btn btn-default" type="button" value="下载图片" onclick="downloadPic();">
-    </div>
-  </div>
-         
-   
-</form> 
+  </form> 
+  
  </div>   
 </div>
 </body>
