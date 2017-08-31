@@ -34,7 +34,7 @@
 					
 					<th>上传人</th>
 					<th>文件名</th>
-					
+					<th>下载</th>
 				</tr>
 			</thead>
 			<tbody id="tableBody">
@@ -129,13 +129,13 @@
              $(dataList).each(function(){//重新生成
              	    $("#tableBody").append('<tr>');
              	    
-                    $("#tableBody").append('<td>' + this.username + '</td>');
-                    $("#tableBody").append('<td>' + this.filename + '</td>');
-                 
+                    $("#tableBody").append('<td id="username">' + this.username + '</td>');
+                    $("#tableBody").append('<td id="filename">' + this.filename + '</td>');
+                    $("#tableBody").append('<td><a onclick="downloadPic(this);"><i class="icon-arrow-down" ></i></a></td>');
                     $("#tableBody").append('</tr>');
              	    });  
              	    } else {             	            	
-             	          $("#tableBody").append('<tr><th colspan ="4"><center>查询无数据</center></th></tr>');
+             	          $("#tableBody").append('<tr><th colspan ="3"><center>查询无数据</center></th></tr>');
              	    }
              	    }else{
              	          alert(data.errorMsg);
@@ -162,6 +162,12 @@
             	buildTable(userName,1,PAGESIZE);
             });
         });
+        
+        function downloadPic(e){
+        	var ss =$(this).parents("tr");
+        	var s = $(e).parents("tr").find("#username").text();
+        	alert(s);
+        }
     </script>
 </body>
 </html>
