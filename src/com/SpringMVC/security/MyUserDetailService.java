@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
+//http://blog.csdn.net/u012367513/article/details/38866465
 public class MyUserDetailService implements UserDetailsService{
 	
 	//登陆验证时，通过username获取用户的所有权限信息，  
