@@ -165,7 +165,8 @@
         
         function downloadPic(e){
         	var ss =$(this).parents("tr");
-        	var s = $(e).parents("tr").find("#username").text();
+        	console.info(ss)
+        	var s = $(this).parents("tr").find("#username").text();
         	alert(s);
         }
     </script>
