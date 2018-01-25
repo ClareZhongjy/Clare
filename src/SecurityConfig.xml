@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+    http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.0.xsd">
+
+	<http auto-config="true">
+		<!-- <intercept-url pattern="/home" access="permitAll" /> -->
+		<intercept-url pattern="/" access="permitAll" />
+<intercept-url pattern="/login/main.do" access="hasRole('ADMIN')" />
+		<!--<intercept-url pattern="/admin/**" access="hasRole('ADMIN')" /> -->
+		<!--<intercept-url pattern="/newuser" access="hasRole('ADMIN')" /> -->
+		<!--<intercept-url pattern="/db/**" access="hasRole('ADMIN') and hasRole('DBA')" 
+			/> -->
+
+		<form-login login-page="/login/preLogin.do"
+			username-parameter="userName" password-parameter="password" />
+		<access-denied-handler error-page="/accessDenied" />
+
+		<remember-me remember-me-parameter="remember-me"
+			remember-me-cookie="remember-me" data-source-ref="dataSource"
+			token-validity-seconds="86400" />
+		<csrf />
+		<headers >
+		<frame-options policy="SAMEORIGIN"/>
+		</headers>
+	</http>
+
+
+	<beans:bean id="bcryptEncoder"
+		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+
+
+	<authentication-manager>
+		<authentication-provider user-service-ref="customUserDetailsService">
+			<password-encoder ref="bcryptEncoder" />
+		</authentication-provider>
+	</authentication-manager>
+
+
+
+</beans:beans>
