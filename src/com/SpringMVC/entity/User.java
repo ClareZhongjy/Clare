@@ -1,5 +1,7 @@
 package com.SpringMVC.entity;
 
+import java.util.List;
+
 public class User {
 	private int id;
 	private String userName;
@@ -7,9 +9,23 @@ public class User {
 	private int age;
 	private String session;
 	private String cnName;
+	private List<String> roleList;
+	private String role;
 	
 	
 	
+	public List<String> getRoleList() {
+		return roleList;
+	}
+	public void setRoleList(List<String> roleList) {
+		this.roleList = roleList;
+	}
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
 	public String getCnName() {
 		return cnName;
 	}
