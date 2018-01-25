@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +12,7 @@
 <script type="text/javascript">
 function exitLogin(){
 	
-	 var url = "${pageContext.request.contextPath}/login/loginOut.do?userName=${_USER.userName }";
+	 var url = "${pageContext.request.contextPath}/login/logout.do";
 	 
 	 window.parent.location.href= url;
 }
@@ -29,7 +31,8 @@ function exitLogin(){
 	  	<i class="glyphicon glyphicon-user" ></i> 
 	  	${_USER.cnName }
 	  	<br>
-	  	<a href="#" title="退出" style="margin-right: 0;float: right;" onclick="exitLogin();">
+	  	
+	  	<a href="#" title="退出" style="margin-right: 0;float: right;" onclick="exitLogin();"> 
 	  	<i class="glyphicon glyphicon-off" ></i> </a>
   	</span><br>
   	
