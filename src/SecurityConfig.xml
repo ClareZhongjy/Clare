@@ -7,8 +7,12 @@
 
 	<http auto-config="true">
 		<!-- <intercept-url pattern="/home" access="permitAll" /> -->
-		<intercept-url pattern="/" access="permitAll" />
-<intercept-url pattern="/login/main.do" access="hasRole('ADMIN')" />
+		
+		<intercept-url pattern="/login/preLogin.do" access="permitAll" />
+		<intercept-url pattern="/static/**" access="permitAll" />
+		<intercept-url pattern="/**" access="hasRole('ADMIN') or hasRole('USER') or hasRole('DBA')" />
+		
+		
 		<!--<intercept-url pattern="/admin/**" access="hasRole('ADMIN')" /> -->
 		<!--<intercept-url pattern="/newuser" access="hasRole('ADMIN')" /> -->
 		<!--<intercept-url pattern="/db/**" access="hasRole('ADMIN') and hasRole('DBA')" 
